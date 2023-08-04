@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/imyelo/certip#readme",
   "devDependencies": {
+    "@types/pem": "^1.14.0",
     "@yelo/eslint-config": "^0.2.0",
     "@yelo/prettier-config": "^0.1.0",
     "@yelo/tsconfig": "^0.3.0",
@@ -70,5 +71,11 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "ofetch": "^1.1.1",
+    "p-timeout": "^6.1.2",
+    "pem": "^1.14.8"
   }
 }
