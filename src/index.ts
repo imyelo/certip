@@ -10,12 +10,16 @@ interface Options {
   port?: number
   timeout?: number
 }
+interface Result {
+  serial: string
+  ips: string[]
+}
 const DEFAULT_OPTIONS: Options = {
   port: 443,
   timeout: 10000,
 }
 
-export const getCertIPs = async (host: string, options?: Options) => {
+export const getCertIPs = async (host: string, options?: Options): Promise<Result> => {
   const { port, timeout } = {
     ...DEFAULT_OPTIONS,
     ...options,
@@ -41,11 +45,11 @@ export const getCertIPs = async (host: string, options?: Options) => {
     { milliseconds: timeout }
   )
 
-  const cert = BigInt(`0x${serialNumber}`).toString()
+  const serial = BigInt(`0x${serialNumber}`).toString()
 
   const response = await ofetch('https://fofa.info/result', {
     query: {
-      qbase64: Buffer.from(`cert="${cert}"`).toString('base64'),
+      qbase64: Buffer.from(`cert="${serial}"`).toString('base64'),
     },
   })
 
@@ -58,5 +62,5 @@ export const getCertIPs = async (host: string, options?: Options) => {
       .filter(text => /^\d+\.\d+\.\d+\.\d+$/.test(text))
   )
 
-  return ips
+  return { serial, ips }
 }
