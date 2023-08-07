@@ -32,6 +32,7 @@ console.log(serial, ips)
 ## References
 
 - https://www.iculture.cc/cybersecurity/pig=3185
+- https://mp.weixin.qq.com/s?__biz=MzkzNzI4NDQzMA==&mid=2247489114&idx=1&sn=3ffb7ecaeae7bb5026e60a28e9141c2f
 
 ## License
 
