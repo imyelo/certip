@@ -75,7 +75,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "ofetch": "^1.1.1",
-    "p-timeout": "^6.1.2",
-    "pem": "^1.14.8"
+    "p-timeout": "^6.1.2"
   }
 }

@@ -6,7 +6,20 @@ import pTimeout from 'p-timeout'
 
 const uniq = (array: string[]) => Array.from(new Set(array))
 
-export const getCertIPs = async (host, port = 443, timeout = 10000) => {
+interface Options {
+  port?: number
+  timeout?: number
+}
+const DEFAULT_OPTIONS: Options = {
+  port: 443,
+  timeout: 10000,
+}
+
+export const getCertIPs = async (host: string, options?: Options) => {
+  const { port, timeout } = {
+    ...DEFAULT_OPTIONS,
+    ...options,
+  }
   const [ip] = await dns.resolve(host)
   const { serialNumber } = await pTimeout(
     new Promise<DetailedPeerCertificate>((resolve, reject) => {
