@@ -5,7 +5,7 @@
 ## Get Started
 
 ```bash
-npx certip github.com
+$ npx certip github.com
 ```
 
 ## Usage
@@ -13,10 +13,32 @@ npx certip github.com
 ### Shell Command
 
 ```bash
-npx certip <domain> --port <port?=443> --timeout <timeout?=10000>
+$ npx certip <domain> --port <port?=443> --timeout <timeout?=10000>
 
 # e.g.
-npx certip github.com --port 443 --timeout 10000
+$ npx certip github.com --port 443 --timeout 10000
+
+⠇ IPs lookup...
+
+Host:
+github.com
+
+Cert Serial:
+17034156255497985825694118641198758684
+
+IPs:
+- 167.71.50.75
+- 64.226.90.132
+- 89.21.66.215
+- 169.150.212.67
+- 64.226.64.124
+- 138.68.186.93
+- 185.90.61.141
+- 194.195.244.129
+- 169.150.210.46
+- 185.213.23.133
+
+✔ IPs lookup success
 ```
 
 ### Programmatic API
@@ -27,6 +49,18 @@ import { getCertIPs } from 'certip'
 const { serial, ips } = await getCertIPs('github.com')
 
 console.log(serial, ips)
+// 17034156255497985825694118641198758684 [
+//   '167.71.50.75',
+//   '64.226.90.132',
+//   '89.21.66.215',
+//   '169.150.212.67',
+//   '64.226.64.124',
+//   '138.68.186.93',
+//   '185.90.61.141',
+//   '194.195.244.129',
+//   '169.150.210.46',
+//   '185.213.23.133'
+// ]
 ```
 
 ## References
